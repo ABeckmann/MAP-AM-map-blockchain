@@ -5,8 +5,8 @@ import pkg_resources
 from sawtooth_sdk.processor.core import TransactionProcessor
 from sawtooth_sdk.processor.log import init_console_logging
 
-from map_blockchain.tp.handler import MapTransactionHandler
-from map_blockchain import addresser
+from tp.handler import MapTransactionHandler
+import addresser # from map_blockchain 
 
 
 def parse_args(args):
@@ -33,7 +33,6 @@ def parse_args(args):
         version=(addresser.DISTRIBUTION_NAME + ' (Hyperledger Sawtooth) version {}')
         .format(version),
         help='print version information')
- 
     return parser.parse_args(args)
 
 
@@ -60,6 +59,7 @@ def main(args=None):
         if processor is not None:
             print("processor is not None: stopping")
             processor.stop()
-            
+
+
 if __name__ == "__main__":
-        main()
+    main()

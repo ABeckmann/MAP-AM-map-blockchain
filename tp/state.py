@@ -1,9 +1,9 @@
-import requests
-from bc_python_sawtooth_assets.client.client import Client
-from bc_python_sawtooth_assets.client import cli
+# import requests
+# from bc_python_sawtooth_assets.client.client import Client
+# from bc_python_sawtooth_assets.client import cli
 
-from map_blockchain import addresser
-from sawtooth_sdk.processor.exceptions import InternalError
+import addresser
+# from sawtooth_sdk.processor.exceptions import InternalError
 REST_API_URL = 'http://localhost:8008'
 
 
@@ -17,13 +17,12 @@ class Map_video_licence_contract:
         self.date_until = date_until
 
 
-#===============================================================================================
+# ===============================================================================================
 
 class State(object):
-    def __init__(self,context):
+    def __init__(self, context):
         self._context = context    
-#===============================================================================================
-
+# ===============================================================================================
 
     def set_state_video_licence_contract(self, id, video, licenceOwner, region, date_from, date_until):
         """Creates a new map contract
@@ -57,16 +56,14 @@ class State(object):
         """
 
         address = addresser.make_address_video_licence_contract(id)
-        state_data = self._context.get_state(
-                [address])
+        state_data = self._context.get_state([address])
         
         if state_data:
             return True
         else:
             print('no state data- returning None')
             return False
-    
-    
+
     # def _deserialize_video_licence_contract(self, data):
     #     """Take bytes stored in state and deserialize them into Python
     #     Game objects.
@@ -91,5 +88,5 @@ class State(object):
     
 
 
-#===============================================================================================
+# ===============================================================================================
 
