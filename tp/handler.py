@@ -41,7 +41,7 @@ class MapTransactionHandler(TransactionHandler):
 
         try:
             # The payload is csv utf-8 encoded string
-            (action, id, video, licenceOwner, region, date_from,
+            (action, licenceId, videoId, licenceOwner, region, date_from,
                 date_until) = transaction.payload.decode().split(",")
         except ValueError:
             raise InvalidTransaction("Invalid payload serialization")
@@ -64,12 +64,12 @@ class MapTransactionHandler(TransactionHandler):
 
         if action == 'create_video_licence_contract':
             # inputs name_id, list_of_blueprint_connections
-            print('action: {} id: {}'.format(action, id))
-            if state.isalready_state_video_licence_contract(id):
+            print('action: {} id: {}'.format(action, licenceId))
+            if state.isalready_state_video_licence_contract(licenceId):
                 raise InvalidTransaction(
-                    'Invalid action: data already exists: {}'.format(id))
+                    'Invalid action: data already exists: {}'.format(licenceId))
 
-            state.set_state_video_licence_contract(id, video, licenceOwner,
+            state.set_state_video_licence_contract(licenceId, videoId, licenceOwner,
                                                 region, date_from, date_until)
 
 # ==============================================================================

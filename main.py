@@ -1,4 +1,4 @@
-import sys
+yimport sys
 import argparse
 import pkg_resources
 

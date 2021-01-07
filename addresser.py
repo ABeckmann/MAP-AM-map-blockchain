@@ -24,3 +24,7 @@ def _hash(name, length):
 
 def make_address_video_licence_contract(id):
     return NAMESPACE + _hash64(id)  
+
+
+if __name__ == "__main__":
+    print(make_address_video_licence_contract("test"))
