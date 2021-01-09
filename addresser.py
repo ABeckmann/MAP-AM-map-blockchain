@@ -27,4 +27,4 @@ def make_address_video_licence_contract(id):
 
 
 if __name__ == "__main__":
-    print(make_address_video_licence_contract("test"))
+    print(make_address_video_licence_contract("0c10d044-16ea-482d-89f6-50a1df5f3ff1"))
